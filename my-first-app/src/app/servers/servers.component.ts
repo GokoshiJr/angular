@@ -11,6 +11,7 @@ export class ServersComponent {
   allowNewServer: Boolean = false;
   serverCreationStatus: string = 'El servidor no ha sido creado'
   serverName = 'Servidor de Testing';
+  username: string = '';
 
   constructor() {
     setTimeout(() => {
@@ -21,11 +22,15 @@ export class ServersComponent {
   ngOnInit() {}
 
   onCreateServer() {
-    this.serverCreationStatus = 'Server creado'
+    this.serverCreationStatus = 'Server creado: ' + this.serverName;
   }
 
   onUpdateServerName(event: any) {
     console.log(event)
     this.serverName = (<HTMLInputElement>event.target).value;
+  }
+
+  onResetUsername() {
+    this.username = '';
   }
 }
