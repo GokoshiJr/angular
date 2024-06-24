@@ -1,11 +1,19 @@
-<label>Nombre del servidor</label>
-
+<label for="unidirectional">Nombre del servidor - Unidireccional</label>
 <input
   type="text"
   class="form-control"
   name=""
-  id=""
+  id="unidirectional"
   (input)="onUpdateServerName($event)"
+/>
+
+<label for="bidirectional" class="mt-2">Nombre del servidor - Bidireccional</label>
+<input
+  type="text"
+  class="form-control"
+  name=""
+  id="bidirectional"
+  [(ngModel)]="serverName"
 />
 
 <p>{{ serverName }}</p>
