@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 })
 export class ServersComponent {
   allowNewServer: Boolean = false;
+  serverCreationStatus: string = 'El servidor no ha sido creado'
 
   constructor() {
     setTimeout(() => {
@@ -17,4 +18,8 @@ export class ServersComponent {
   }
 
   ngOnInit() {}
+
+  onCreateServer() {
+    this.serverCreationStatus = 'Server creado'
+  }
 }
