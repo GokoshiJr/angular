@@ -6,12 +6,12 @@
 </button>
 <p *ngIf="showSecretPassword" class="mt-2">{{ secretPassword }}</p>
 
-<ul *ngFor="let click of secretPasswordClicks">
+<ul *ngFor="let click of secretPasswordClicks; let i = index">
   <li
     [ngStyle]="{backgroundColor: getSecretColor(click)}"
     [ngClass]="{secretWhite: click.counts > 4}"
   >
-    click: {{ click.counts }} fecha: {{ click.date }}
+    index: {{ i }} click: {{ click.counts }} fecha: {{ click.date }}
   </li>
 </ul>
 
