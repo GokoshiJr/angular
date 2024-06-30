@@ -1,9 +1,28 @@
-<h4>Task</h4>
+<h4>Task 2 </h4>
+
+<button
+  class="btn btn-primary mt-1"
+  (click)="onShowDetails()">Display Details
+</button>
+<p *ngIf="showSecretPassword" class="mt-2">{{ secretPassword }}</p>
+
+<ul *ngFor="let click of secretPasswordClicks">
+  <li
+    [ngStyle]="{backgroundColor: getSecretColor(click)}"
+    [ngClass]="{secretWhite: click.counts > 4}"
+  >
+    click: {{ click.counts }} fecha: {{ click.date }}
+  </li>
+</ul>
+
+<hr>
+
+<h4>Task 1 </h4>
 
 <label for="username">Username</label>
 <input type="text" name="" id="username" class="form-control" [(ngModel)]="username">
 
-<p>{{ username }}</p>
+<p >{{ username }}</p>
 
 <button
   class="btn btn-primary mt-1"

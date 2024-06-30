@@ -9,11 +9,15 @@ import { Component } from '@angular/core';
 })
 export class ServersComponent {
   allowNewServer: Boolean = false;
-  serverCreationStatus: string = 'El servidor no ha sido creado'
+  serverCreationStatus: string = 'El servidor no ha sido creado';
   serverName = 'Servidor de Testing';
   username: string = '';
   serverCreated: boolean = false;
-  servers = ['TestServer', 'TestServer 2']
+  servers = ['TestServer', 'TestServer 2'];
+  secretPassword: string = 'creatine';
+  showSecretPassword: boolean = true;
+  secretPasswordClicks: Object[] = [];
+  clicksCount: number = 1;
 
   constructor() {
     setTimeout(() => {
@@ -22,6 +26,19 @@ export class ServersComponent {
   }
 
   ngOnInit() {}
+
+  getSecretColor(click) {
+    return click.counts > 4 ? 'blue' : 'white'
+  }
+
+  onShowDetails() {
+    this.showSecretPassword = !this.showSecretPassword;
+    this.secretPasswordClicks.push({
+      'counts': this.clicksCount,
+      'date': new Date().toLocaleString()
+    });
+    this.clicksCount += 1;
+  }
 
   onCreateServer() {
     this.serverCreationStatus = 'Server creado: ' + this.serverName;
